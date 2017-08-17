@@ -1,0 +1,40 @@
+package com.learning.algorithms;
+
+import java.util.Scanner;
+
+class Position {
+	int position;
+	int value;
+	
+	public int getPosition() {
+		return position;
+	}
+	public void setPosition(int position) {
+		this.position = position;
+	}
+	public int getValue() {
+		return value;
+	}
+	public void setValue(int value) {
+		this.value = value;
+	}
+	
+}
+public class MinSwapsToSort {
+	
+	public void minSwaps(int[] arr) {
+		
+	}
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int size = in.nextInt();
+		int[] arr = new int[size];
+		for(int i=0;i<size;i++) {
+			arr[i]=in.nextInt();
+		}
+		MinSwapsToSort m = new MinSwapsToSort();
+		m.minSwaps(arr);
+		in.close();
+	}
+
+}
