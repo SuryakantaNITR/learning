@@ -1,0 +1,32 @@
+package com.learning.paradigms.dp;
+
+public class EditDistance {
+	public static int editDistance(String s1, String s2, int m, int n) {
+		int[][] cache = new int[m+1][n+1];
+		if(m == 0)
+			return n;
+		if(n == 0)
+			return m;
+		for(int i=0;i<=m;i++) {
+			for(int j=0;j<=n;j++) {
+				if(i==0)
+					cache[i][j]=j;
+				else if(j==0)
+					cache[i][j]=i;
+				
+				else if(s1.charAt(i-1) == s2.charAt(j-1)) {
+					cache[i][j] = cache[i-1][j-1];
+				}
+				else {
+					cache[i][j] = 1 + Math.min(cache[i-1][j-1], Math.min(cache[i][j-1], cache[i-1][j]));
+				}
+			}
+		}
+		return cache[m][n];
+	}
+	public static void main(String[] args) {
+		String s1 = "sunday", s2 = "saturday";
+		System.out.println(editDistance(s1, s2, s1.length(), s2.length()));
+	}
+
+}
